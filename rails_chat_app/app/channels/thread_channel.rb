@@ -1,6 +1,6 @@
 class ThreadChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "thread_channel"
+    stream_from "thread_channel_#{params['thread_board']}" 
   end
 
   def unsubscribed
@@ -8,7 +8,7 @@ class ThreadChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    # ßActionCable.server.broadcast 'thread_channel', message: data['message']
-    Message.create! content: data['message']
+    # ActionCable.server.broadcast 'thread_channel', message: data['message']
+    Message.create! content: data['message'], user_id: current_user.id, thread_board_id: params['thread_board']
   end
 end

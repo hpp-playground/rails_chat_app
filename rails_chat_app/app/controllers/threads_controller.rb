@@ -1,6 +1,10 @@
 class ThreadsController < ApplicationController
+  def index
+    @thread_boards = ThreadBoard.all.order(:id)
+  end
+
   def show
-    # メッセージ一覧を取得
-    @messages = Message.all
+    @thread_board = ThreadBoard.find(params[:id])
+    @messages = @thread_board.messages
   end
 end
