@@ -12,12 +12,13 @@ const chatChannel = consumer.subscriptions.create("ThreadChannel", {
   },
 
   received(data) {
+    console.log("message recieved!");
     return $('#messages').append(data['message']);
   },
 
   speak: function(message) {
     return this.perform('speak', {
-      message: message
+      message: message 
     });
   }
 });
@@ -25,6 +26,7 @@ const chatChannel = consumer.subscriptions.create("ThreadChannel", {
 $(document).on('keypress', '[data-behavior~=room_speaker]', function(event) {
   if (event.keyCode === ENTER_KEY) {
     chatChannel.speak(event.target.value);
+    console.log("enter key is pressed")
     event.target.value = '';
     return event.preventDefault();
   }
