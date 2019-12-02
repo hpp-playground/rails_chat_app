@@ -1,5 +1,7 @@
-<h1>Threads#show</h1>
-<p>Find me in app/views/threads/show.html.erb</p>
+<h1>Thread</h1>
 <div id='messages'>
   <%= render @messages %>
 </div>
+
+<%= label_tag :content, 'Say something:' %>
+<%= text_field_tag :content, nil, data: { behavior: 'room_speaker' } %>
