@@ -1,0 +1,2 @@
+class ThreadBoard < ApplicationRecord
+end
