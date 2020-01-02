@@ -1,0 +1,7 @@
+<div>
+  <ul>
+    <% @thread_boards.each do |thread_board| %>
+      <li><%= link_to "THREAD#{thread_board.id}", thread_path(thread_board) %></li>
+    <% end %>
+  </ul>
+</div>

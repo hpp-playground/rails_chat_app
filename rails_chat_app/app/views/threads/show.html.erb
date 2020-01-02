@@ -1,0 +1,7 @@
+<h1>Thread<%= @thread_board.id %></h1>
+<div id='messages' data-thread_board_id="<%= @thread_board.id %>">
+  <%= render @messages %>
+</div>
+
+<%= label_tag :content, 'Say something:' %>
+<%= text_field_tag :content, nil, data: { behavior: 'thread_board_speaker' } %>
